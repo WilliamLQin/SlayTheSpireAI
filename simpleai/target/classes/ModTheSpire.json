@@ -1,0 +1,9 @@
+{
+  "modid": "simpleai",
+  "name": "SimpleAI",
+  "author_list": ["William Qin"],
+  "description": "Simple AI to play combat",
+  "version": "0.1",
+  "sts_version": "03-07-2022",
+  "mts_version": "3.22.0"
+}
