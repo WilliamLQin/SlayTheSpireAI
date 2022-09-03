@@ -1,2 +1,5 @@
 _ModTheSpire/**
 lib/**
+**/target
+
+**/dependency-reduced-pom.xml

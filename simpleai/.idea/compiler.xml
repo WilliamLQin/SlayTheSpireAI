@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="simpleai" />
-        <module name="ExampleMod" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ExampleMod" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
