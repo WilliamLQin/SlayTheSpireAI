@@ -1,4 +1,4 @@
-package helpers;
+package simpleai.helpers;
 
 import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.dungeons.*;

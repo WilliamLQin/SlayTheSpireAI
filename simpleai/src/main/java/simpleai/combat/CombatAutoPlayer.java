@@ -1,4 +1,4 @@
-package combatai;
+package simpleai.combat;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -8,26 +8,30 @@ import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.actions.*;
+import com.megacrit.cardcrawl.actions.watcher.*;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import helpers.*;
-import inputapi.*;
+import simpleai.helpers.*;
+import simpleai.inputapi.*;
+import simpleai.*;
 
 public class CombatAutoPlayer {
 
-    public static boolean enabled = false;
-
     public static void autoPlayCombat() {
-        ArrayList<AbstractMonster> monsters = (AbstractDungeon.getCurrRoom()).monsters.monsters;
-        if (monsters.isEmpty()) {
-            System.out.println("No monsters in combat!");
+        if (!SimpleAI.enabled
+                || AbstractDungeon.actionManager.phase != GameActionManager.Phase.WAITING_ON_USER
+                || !AbstractDungeon.actionManager.actions.isEmpty()
+                || !AbstractDungeon.actionManager.preTurnActions.isEmpty()
+                || !AbstractDungeon.actionManager.cardQueue.isEmpty()
+                || !AbstractDungeon.overlayMenu.endTurnButton.enabled) {
             return;
         }
 
-        if (AbstractDungeon.actionManager.phase != GameActionManager.Phase.WAITING_ON_USER
-                || !AbstractDungeon.actionManager.cardQueue.isEmpty()) {
+        ArrayList<AbstractMonster> monsters = (AbstractDungeon.getCurrRoom()).monsters.monsters;
+        if (monsters.isEmpty()) {
+            System.out.println("No monsters in combat!");
             return;
         }
 
@@ -51,9 +55,7 @@ public class CombatAutoPlayer {
         }
 
         // no cards played, end turn
-        if (AbstractDungeon.overlayMenu.endTurnButton.enabled) {
-            AbstractDungeon.overlayMenu.endTurnButton.disable(true);
-        }
+        AbstractDungeon.actionManager.addToBottom(new PressEndTurnButtonAction());
     }
 
 }

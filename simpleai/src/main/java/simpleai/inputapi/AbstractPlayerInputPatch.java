@@ -1,4 +1,4 @@
-package inputapi;
+package simpleai.inputapi;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
@@ -8,24 +8,19 @@ import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.helpers.input.*;
+import com.megacrit.cardcrawl.actions.watcher.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import helpers.*;
-import combatai.*;
+import simpleai.helpers.*;
+import simpleai.combat.*;
+import simpleai.*;
 
 @SpirePatch(clz = AbstractPlayer.class, method = "updateInput")
 public class AbstractPlayerInputPatch {
 
     public static SpireReturn<Void> Prefix(AbstractPlayer __instance) {
-        if (DevInputActionSet.toggleDebug.isJustPressed()) {
-            CombatAutoPlayer.enabled = true;
-        }
-        if (DevInputActionSet.toggleInfo.isJustPressed()) {
-            CombatAutoPlayer.enabled = false;
-        }
-
-        if (CombatAutoPlayer.enabled) {
+        if (SimpleAI.enabled) {
             CombatAutoPlayer.autoPlayCombat();
         }
 
