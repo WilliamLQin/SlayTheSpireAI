@@ -5,10 +5,10 @@
 
     <!-- Change These to match your mod -->
     <groupId>simpleai</groupId>
-    <artifactId>SimpleAI</artifactId>
+    <artifactId>SlayTheSpireAI</artifactId>
     <version>0.1</version>
     <packaging>jar</packaging>
-    <name>SimpleAI</name>
+    <name>SlayTheSpireAI</name>
     <description>Slay the Spire mod</description>
 
     <!-- These are the dependencies that were placed in the libs folder.

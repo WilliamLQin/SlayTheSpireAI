@@ -1,10 +1,10 @@
-package simpleai.inputapi;
+package stsai.inputapi;
 
 import java.util.*;
 import com.megacrit.cardcrawl.cards.*;
 import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.monsters.*;
-import simpleai.helpers.*;
+import stsai.helpers.*;
 
 public class PlayCard {
 

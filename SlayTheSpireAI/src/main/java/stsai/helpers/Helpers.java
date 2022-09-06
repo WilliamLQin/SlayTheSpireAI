@@ -1,6 +1,5 @@
-package simpleai.helpers;
+package stsai.helpers;
 
-import com.megacrit.cardcrawl.characters.*;
 import com.megacrit.cardcrawl.dungeons.*;
 import com.megacrit.cardcrawl.monsters.*;
 import com.megacrit.cardcrawl.powers.*;
